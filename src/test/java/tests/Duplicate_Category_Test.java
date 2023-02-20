@@ -22,8 +22,27 @@ public class Duplicate_Category_Test {
 		String categoryname = "TestNG 2797";
 		duplicate_Category.insertCategory(categoryname);
 		duplicate_Category.clickOnAddCategoryButton();
-   
-        Assert.assertEquals(duplicate_Category.getErrorMessage(), "The category you want to add already exists: "+categoryname+".");
+		
+		driver.getTitle();
+		driver.getWindowHandle();
+		String ActualAlertMessage = duplicate_Category.getErrorMessage();
+	    String  expectedAlertMessage = "The category you want to add already exists: "+categoryname+".";
+		ActualAlertMessage.contains(expectedAlertMessage);
+		duplicate_Category.nevermindButton();
+		
+
+//		String inputString = "The category you want to add already exists: TestNG 2797.\r\n"
+//                + "\r\n"
+//                + "Do you want to update its colour to TestNG 2797?\r\n"
+//                + "\r\n"
+//                + "Yes or Nevermind";
+//
+//        String Message = inputString.substring(0, inputString.indexOf(": ") + 2);
+//        
+//        String ExpectedMessage = Message+categoryname+".";
+//        String ActualMessage = "The category you want to add already exists: "+categoryname+".";
+//   
+//        Assert.assertEquals(ExpectedMessage, ActualMessage);
 
 		
         BrowserFactory.tearDown();

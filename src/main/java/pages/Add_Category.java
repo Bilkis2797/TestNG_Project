@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +28,9 @@ public class Add_Category {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Category_Input_Button.sendKeys("TestNG 2797");
+		Random rnd = new Random();
+		int generateNum = rnd.nextInt();
+		Category_Input_Button.sendKeys("TestNG 2797"+generateNum);
 	}
 
 	public void clickOnAddCategoryButton() {
